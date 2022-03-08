@@ -1,34 +1,12 @@
 import MessagesList from "./components/MessagesList";
 import Navbar from "./components/Navbar";
 import NewMessageForm from "./components/NewMessageForm";
-import styles from './App.module.css'
-
-const users = [
-  {
-    id: 1,
-    name: "Dima",
-  },
-  { id: 2, name: "Lisa" },
-];
-
-const messages = [
-  {
-    id: 1,
-    body: "Hello Lisa",
-    createdDate: Date.now(),
-    sender: "Dima",
-    senderId: 1,
-  },
-  {
-    id: 2,
-    body: "Hello Dima",
-    createdDate: Date.now(),
-    sender: "Lisa",
-    senderId: 2,
-  },
-];
+import styles from "./App.module.css";
+import { messages as MockMessage } from "./mockDate";
+import { useState } from "react";
 
 function App() {
+  const [messages, setMessages] = useState(MockMessage);
   return (
     <div className={styles.App}>
       <Navbar />
