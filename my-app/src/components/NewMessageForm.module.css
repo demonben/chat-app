@@ -1,0 +1,24 @@
+.Form {
+  display: flex;
+  height: 85px;
+  align-items: center;
+  justify-content: center;
+  padding: 30px 25px 26px 50px;
+}
+.Input {
+  border: none;
+  height: 30px;
+  color: #011f26;
+  flex-grow: 1;
+}
+
+.Button {
+  width: 30px;
+  height: 25px;
+  background: none;
+  border: none;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
