@@ -7,11 +7,14 @@ import { useState } from "react";
 
 function App() {
   const [messages, setMessages] = useState(MockMessage);
+  const handleOnNewMessage = (newMessage) => {
+    setMessages((prevMessages) => [...prevMessages, newMessage]);
+  };
   return (
     <div className={styles.App}>
       <Navbar />
       <MessagesList messages={messages} />
-      <NewMessageForm />
+      <NewMessageForm onNewMessage={handleOnNewMessage} />
     </div>
   );
 }
