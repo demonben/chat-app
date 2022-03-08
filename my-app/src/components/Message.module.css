@@ -1,0 +1,32 @@
+.Message {
+  display: flex;
+}
+.UserIcon {
+  width: 50px;
+  height: 50px;
+  border: 3px solid white;
+  border-radius: 50%;
+  background: #011f26;
+  color: aliceblue;
+  margin-inline-end: 12px;
+  margin-top: 35px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+}
+.MessageDate {
+  opacity: 0.5;
+  font-size: 15px;
+  text-align: center;
+  margin-bottom: 15px;
+  
+}
+
+.MessageText {
+  background: #011f26;
+  color: aliceblue;
+  border-radius: 20px;
+  padding: 10px 20px;
+  max-width: 270px;
+}
