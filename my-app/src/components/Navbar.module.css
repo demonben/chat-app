@@ -1,0 +1,19 @@
+.Navbar {
+  height: 60px;
+  background: #025e73;
+  color: aliceblue;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 10px 10px 30px;
+}
+.UserIcon {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: aliceblue;
+  color: #025e73;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
