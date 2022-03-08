@@ -1,6 +1,7 @@
 import MessagesList from "./components/MessagesList";
 import Navbar from "./components/Navbar";
 import NewMessageForm from "./components/NewMessageForm";
+import styles from './App.module.css'
 
 const users = [
   {
@@ -29,7 +30,7 @@ const messages = [
 
 function App() {
   return (
-    <div className="App">
+    <div className={styles.App}>
       <Navbar />
       <MessagesList messages={messages} />
       <NewMessageForm />
