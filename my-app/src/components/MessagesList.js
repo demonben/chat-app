@@ -1,5 +1,6 @@
 import React from "react";
 import Message from "./Message";
+import style from './MessagesList.module.css'
 
 const MessagesList = (props) => {
   const { messages } = props;
@@ -7,7 +8,7 @@ const MessagesList = (props) => {
   const messageListItem = messages.map((message) => (
     <Message key={message.id} message={message} />
   ));
-  return <div>{messageListItem}</div>;
+  return <div className={style.List}>{messageListItem}</div>;
 };
 
 export default MessagesList;
