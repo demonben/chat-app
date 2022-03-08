@@ -1,33 +1,40 @@
+import MessagesList from "./components/MessagesList";
+import Navbar from "./components/Navbar";
+import NewMessageForm from "./components/NewMessageForm";
+
 const users = [
   {
     id: 1,
     name: "Dima",
   },
-  { id: 2,
-    name: "Lisa" },
+  { id: 2, name: "Lisa" },
 ];
 
-const message = [
+const messages = [
   {
     id: 1,
     body: "Hello Lisa",
     createdDate: Date.now(),
     sender: "Dima",
-    senderId:1
+    senderId: 1,
   },
   {
     id: 2,
     body: "Hello Dima",
     createdDate: Date.now(),
     sender: "Lisa",
-    senderId:2
+    senderId: 2,
   },
 ];
 
 function App() {
-  return <div className="App">
-    
-  </div>;
+  return (
+    <div className="App">
+      <Navbar />
+      <MessagesList messages={messages} />
+      <NewMessageForm />
+    </div>
+  );
 }
 
 export default App;
