@@ -4,8 +4,8 @@ import Navbar from "./components/Navbar";
 import NewMessageForm from "./components/NewMessageForm";
 import styles from "./App.module.css";
 import { messages as MockMessage } from "./mockDate";
-import firebase from 'firebase/app'
-import 'firebase/firestore'
+import firebase from "firebase/compat/app";
+import "firebase/firestore";
 
 const firebaseConfig = {
   apiKey: "AIzaSyBLATOMAS_t-TLsuwsRwZJzxZe5rStXsGU",
@@ -13,10 +13,10 @@ const firebaseConfig = {
   projectId: "dima-ben-project",
   storageBucket: "dima-ben-project.appspot.com",
   messagingSenderId: "17483853397",
-  appId: "1:17483853397:web:3b21cecdff4949275e6edc"
+  appId: "1:17483853397:web:3b21cecdff4949275e6edc",
 };
 
-firebase.initializeApp(firebaseConfig)
+firebase.initializeApp(firebaseConfig);
 
 function App() {
   const [messages, setMessages] = useState(MockMessage);
