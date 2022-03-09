@@ -3,7 +3,6 @@ import MessagesList from "./components/MessagesList";
 import Navbar from "./components/Navbar";
 import NewMessageForm from "./components/NewMessageForm";
 import styles from "./App.module.css";
-import { messages as MockMessage } from "./mockDate";
 import firebase from "firebase/compat/app";
 import "firebase/compat/firestore";
 
@@ -29,12 +28,12 @@ function App() {
         return snap.docs.map((doc) => doc.data());
       })
       .then((messages) => {
-        setMessages(messages)
+        setMessages(messages);
       });
   }, []);
 
-  const handleOnNewMessage = (newMessage) => {
-    setMessages((prevMessages) => [...prevMessages, newMessage]);
+  const handleOnNewMessage = async (newMessage) => {
+    await firebase.firestore().collection("messages").add(newMessage);
   };
   return (
     <div className={styles.App}>
