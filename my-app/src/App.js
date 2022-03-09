@@ -23,6 +23,7 @@ function App() {
     firebase
       .firestore()
       .collection("messages")
+      .orderBy("createdDate", "desc")
       .onSnapshot((snap) => {
         const messages = snap.docs.map((doc) => ({
           ...doc.data(),
