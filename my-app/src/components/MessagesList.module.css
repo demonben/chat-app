@@ -1,5 +1,6 @@
-.List{
-    display: grid;
-    row-gap: 30px;
-    overflow-y: scroll;
+.List {
+  display: flex;
+  grid-row-gap: 30px;
+  overflow-y: scroll;
+  flex-direction: column-reverse;
 }
