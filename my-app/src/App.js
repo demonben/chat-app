@@ -23,11 +23,11 @@ function App() {
     firebase
       .firestore()
       .collection("messages")
-      .get()
-      .then((snap) => {
-        return snap.docs.map((doc) => doc.data());
-      })
-      .then((messages) => {
+      .onSnapshot((snap) => {
+        const messages = snap.docs.map((doc) => ({
+          ...doc.data(),
+          id: doc.id,
+        }));
         setMessages(messages);
       });
   }, []);
