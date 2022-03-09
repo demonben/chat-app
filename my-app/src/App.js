@@ -1,11 +1,11 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import MessagesList from "./components/MessagesList";
 import Navbar from "./components/Navbar";
 import NewMessageForm from "./components/NewMessageForm";
 import styles from "./App.module.css";
 import { messages as MockMessage } from "./mockDate";
 import firebase from "firebase/compat/app";
-import "firebase/firestore";
+import "firebase/compat/firestore";
 
 const firebaseConfig = {
   apiKey: "AIzaSyBLATOMAS_t-TLsuwsRwZJzxZe5rStXsGU",
@@ -19,7 +19,20 @@ const firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 
 function App() {
-  const [messages, setMessages] = useState(MockMessage);
+  const [messages, setMessages] = useState([]);
+  useEffect(() => {
+    firebase
+      .firestore()
+      .collection("messages")
+      .get()
+      .then((snap) => {
+        return snap.docs.map((doc) => doc.data());
+      })
+      .then((messages) => {
+        setMessages(messages)
+      });
+  }, []);
+
   const handleOnNewMessage = (newMessage) => {
     setMessages((prevMessages) => [...prevMessages, newMessage]);
   };

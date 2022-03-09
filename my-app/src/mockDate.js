@@ -1,9 +1,9 @@
 export const users = [
     {
-      id: 1,
+      id: "1",
       name: "Dima",
     },
-    { id: 2, name: "Lisa" },
+    { id: "2", name: "Lisa" },
   ];
   
   export const messages = [
@@ -12,13 +12,13 @@ export const users = [
       body: "Hello Lisa",
       createdDate: Date.now(),
       sender: "Dima",
-      senderId: 1,
+      senderId: "1",
     },
     {
       id: 2,
       body: "Hello Dima",
       createdDate: Date.now(),
       sender: "Lisa",
-      senderId: 2,
+      senderId: "2",
     },
   ];
