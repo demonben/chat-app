@@ -20,7 +20,7 @@ firebase.initializeApp(firebaseConfig);
 function App() {
   const [messages, setMessages] = useState([]);
   useEffect(() => {
-    firebase
+    const unsubscribe = firebase
       .firestore()
       .collection("messages")
       .orderBy("createdDate", "desc")
@@ -31,6 +31,9 @@ function App() {
         }));
         setMessages(messages);
       });
+      return ()=>{
+        unsubscribe()
+      }
   }, []);
 
   const handleOnNewMessage = async (newMessage) => {
