@@ -15,6 +15,12 @@ const Login = () => {
         firebase.auth.GoogleAuthProvider.PROVIDER_ID,
       ],
       signInFlow: "popup",
+      callbacks: {
+        signInSuccessWithAuthResult: (authresult) => {
+          const { displayName, uid } = authresult;
+          return false;
+        },
+      },
     });
   }, []);
 
