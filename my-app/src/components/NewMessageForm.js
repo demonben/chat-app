@@ -8,10 +8,8 @@ const NewMessageForm = (props) => {
   const submitHandler = (event) => {
     event.preventDefault();
     const newMessage = {
-      id: Date.now(),
       body: text,
       createdDate: Date.now(),
-      sender: "Dima",
       senderId: "1",
     };
     onNewMessage(newMessage)
