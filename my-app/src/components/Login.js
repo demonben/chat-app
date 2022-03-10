@@ -1,8 +1,10 @@
 import React, { useLayoutEffect } from "react";
 import firebase from "firebase/compat/app";
-import * as firebaseui from "firebaseui";
+import * as firebaseui from "firebaseui"; 
+import 'firebaseui/dist/firebaseui.css'
 
 const Login = () => {
+    // useLayoutEffect waits for the div to be in the DOM
   useLayoutEffect(() => {
     const ui =
       firebaseui.auth.AuthUI.getInstance() ||
