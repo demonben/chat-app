@@ -1,6 +1,9 @@
 import firebase from "firebase/compat/app";
 import "firebase/compat/firestore";
-import ChatRoom from "components/ChatRoom";
+import "firebase/auth";
+import { useState } from "react";
+import ChatRoom from "./components/ChatRoom";
+import Login from "./components/Login";
 
 const firebaseConfig = {
   apiKey: "AIzaSyBLATOMAS_t-TLsuwsRwZJzxZe5rStXsGU",
@@ -14,7 +17,8 @@ const firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 
 function App() {
-  return <ChatRoom />;
+  const [authUser, setAuthUser] = useState(null);
+  return authUser ? <ChatRoom /> : <Login />;
 }
 
 export default App;
