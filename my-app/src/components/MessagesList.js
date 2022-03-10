@@ -1,4 +1,3 @@
-import React from "react";
 import Message from "./Message";
 import style from './MessagesList.module.css'
 

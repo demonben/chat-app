@@ -12,7 +12,7 @@ const NewMessageForm = (props) => {
       createdDate: Date.now(),
       senderId: "1",
     };
-    onNewMessage(newMessage)
+    onNewMessage(newMessage);
     setText("");
   };
   return (

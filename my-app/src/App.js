@@ -31,9 +31,9 @@ function App() {
         }));
         setMessages(messages);
       });
-      return ()=>{
-        unsubscribe()
-      }
+    return () => {
+      unsubscribe();
+    };
   }, []);
 
   const handleOnNewMessage = async (newMessage) => {
