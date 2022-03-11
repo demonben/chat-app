@@ -1,13 +1,16 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import style from "./Message.module.css";
 import format from "date-fns/format";
 import firebase from "firebase/compat/app";
-import { logDOM } from "@testing-library/react";
+import { AuthContext } from "context/AuthContex";
 
 const Message = (props) => {
+  const authContex = useContext(AuthContext);
+  const { authUser } = authContex;
   const [sender, setSender] = useState(null);
   const { message } = props;
   const { senderId } = message;
+  const isMessageFromAuthUser = senderId === authUser.uid;
   useEffect(() => {
     firebase
       .firestore()
@@ -23,9 +26,12 @@ const Message = (props) => {
       });
   }, [senderId]);
   return (
-    <div className={style.Message}>
+    <div
+      style={{ flexDirection: isMessageFromAuthUser ? "row" : "row-reverse" }}
+      className={style.Message}
+    >
       <div className={style.UserIcon}>
-        {sender ? sender.name.substring(0, 1) : ""}
+        {/* {sender ? sender.name.substring(0, 1) : ""} */}
       </div>
       <div className={style.MessageBody}>
         <div className={style.MessageDate}>
