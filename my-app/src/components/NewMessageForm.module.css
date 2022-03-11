@@ -7,9 +7,12 @@
 }
 .Input {
   border: none;
-  height: 30px;
+  height: 40px;
   color: #011f26;
   flex-grow: 1;
+  border: 2px solid #026873;
+  border-radius: 4px;
+  margin-right: 10%;
 }
 
 .Button {
