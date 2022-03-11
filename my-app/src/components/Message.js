@@ -5,10 +5,10 @@ import { users } from "../mockDate";
 
 const Message = (props) => {
   const { message } = props;
-  const sender = users.find((user) => user.id === message.senderId);
+  // const sender = users.find((user) => user.id === message.senderId);
   return (
     <div className={style.Message}>
-      <div className={style.UserIcon}>{sender.name.substring(0, 1)}</div>
+      {/* <div className={style.UserIcon}>{sender.name.substring(0, 1)}</div> */}
       <div className={style.MessageBody}>
         <div className={style.MessageDate}>
           {format(message.createdDate, "EEEE p")}

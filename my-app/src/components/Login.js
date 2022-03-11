@@ -19,7 +19,7 @@ const Login = () => {
       signInFlow: "popup",
       callbacks: {
         signInSuccessWithAuthResult: (authresult) => {
-          const { displayName, uid } = authresult;
+          const { displayName, uid } = authresult.user;
           const authUser = {
             uid,
             displayName,
