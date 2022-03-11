@@ -29,7 +29,7 @@ const NewMessageForm = (props) => {
         onChange={(event) => setText(event.target.value)}
       />
       <button className={styles.Button} type="submit">
-        add
+        Send
       </button>
     </form>
   );
