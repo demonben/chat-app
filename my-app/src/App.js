@@ -1,7 +1,7 @@
+import { useEffect, useState } from "react";
 import firebase from "firebase/compat/app";
 import "firebase/compat/firestore";
 import "firebase/auth";
-import { useState } from "react";
 import ChatRoom from "./components/ChatRoom";
 import Login from "./components/Login";
 import { AuthContext } from "./context/AuthContex";
@@ -19,6 +19,15 @@ firebase.initializeApp(firebaseConfig);
 
 function App() {
   const [authUser, setAuthUser] = useState(null);
+  useEffect(() => {
+    firebase.auth().onAuthStateChanged((user) => {
+      if (user) {
+        setAuthUser(user);
+      } else {
+        setAuthUser(null);
+      }
+    });
+  }, []);
 
   return (
     <AuthContext.Provider
@@ -29,7 +38,6 @@ function App() {
       }}
     >
       {authUser ? <ChatRoom /> : <Login />}
-
     </AuthContext.Provider>
   );
 }
