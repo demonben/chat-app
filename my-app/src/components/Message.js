@@ -31,7 +31,7 @@ const Message = (props) => {
       className={style.Message}
     >
       <div className={style.UserIcon}>
-        {/* {sender ? sender.name.substring(0, 1) : ""} */}
+        {sender ? sender.name.substring(0, 1) : ""}
       </div>
       <div className={style.MessageBody}>
         <div className={style.MessageDate}>
