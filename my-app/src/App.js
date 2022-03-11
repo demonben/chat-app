@@ -19,6 +19,15 @@ firebase.initializeApp(firebaseConfig);
 
 function App() {
   const [authUser, setAuthUser] = useState(null);
+  const login = async (authUser) => {
+    setAuthUser(authUser);
+    await firebase
+      .firestore()
+      .collection("users")
+      .doc(authUser.uid)
+      .set({ name: authUser.displayName });
+  };
+
   useEffect(() => {
     firebase.auth().onAuthStateChanged((user) => {
       if (user) {
@@ -33,7 +42,7 @@ function App() {
     <AuthContext.Provider
       value={{
         authUser,
-        login: (authUser) => setAuthUser(authUser),
+        login,
         logout: () => setAuthUser(null),
       }}
     >
