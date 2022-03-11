@@ -21,7 +21,7 @@ const NewMessageForm = (props) => {
     <form onSubmit={submitHandler} className={styles.Form}>
       <input
         className={styles.Input}
-        placeholder="type youre message.."
+        placeholder=" Type youre message.."
         type="text"
         name="text"
         id="text"
