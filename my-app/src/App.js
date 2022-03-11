@@ -19,6 +19,7 @@ firebase.initializeApp(firebaseConfig);
 
 function App() {
   const [authUser, setAuthUser] = useState(null);
+
   const login = async (authUser) => {
     setAuthUser(authUser);
     await firebase
@@ -26,6 +27,17 @@ function App() {
       .collection("users")
       .doc(authUser.uid)
       .set({ name: authUser.displayName });
+  };
+  const logout = async () => {
+    firebase
+      .auth()
+      .signOut()
+      .then(() => {
+        setAuthUser(null);
+      })
+      .catch((error) => {
+        // An error happened.
+      });
   };
 
   useEffect(() => {
@@ -43,7 +55,7 @@ function App() {
       value={{
         authUser,
         login,
-        logout: () => setAuthUser(null),
+        logout,
       }}
     >
       {authUser ? <ChatRoom /> : <Login />}
