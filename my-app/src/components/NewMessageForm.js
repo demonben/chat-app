@@ -1,7 +1,9 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { AuthContext } from "context/AuthContex";
 import styles from "./NewMessageForm.module.css";
 
 const NewMessageForm = (props) => {
+  const authContex = useContext(AuthContext);
   const { onNewMessage } = props;
   const [text, setText] = useState("");
 
@@ -10,7 +12,7 @@ const NewMessageForm = (props) => {
     const newMessage = {
       body: text,
       createdDate: Date.now(),
-      senderId: "1",
+      senderId: authContex.authUser.uid,
     };
     onNewMessage(newMessage);
     setText("");
