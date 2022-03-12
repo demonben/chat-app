@@ -1,6 +1,5 @@
 ### ToDo
 - [ ] set state and loader when refreshing the page don't see glitch with comp login
-- [ ] Todo logout 
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
